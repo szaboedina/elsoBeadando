@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 namespace ConsoleApp3
 {
     class Program
-    {   
-        static List<int> szamok= new List<int>();
+    {
+        static List<int> szamok = new List<int>();
         static void Beker()
-        {   
+        {
             Console.WriteLine("Kérem adjon meg hány számot szeretne felvenni:");
             int hossz = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Adja meg a számokat:");
@@ -21,40 +21,49 @@ namespace ConsoleApp3
                 szamok.Add(bekert);
             }
         }
-        
+
 
         static void Main(string[] args)
         {
-            Beker();
-            Console.WriteLine("A megadott számok: ");
-            for (int i = 0; i < szamok.Count; i++)
+            try
             {
-                Console.Write(szamok[i]+"   ");
-            }
-            Console.WriteLine();
 
-            int max = szamok[0];
-            for (int i = 1; i < szamok.Count; i++)
-            {
-                if (max<szamok[i])
+                Beker();
+                Console.WriteLine("A megadott számok: ");
+                for (int i = 0; i < szamok.Count; i++)
                 {
-                    max = szamok[i];
+                    Console.Write(szamok[i] + "   ");
                 }
-            }
-            Console.WriteLine("A legnagyobb szám : "+max);
-            int min = szamok[0];
-            for (int i = 0; i < szamok.Count; i++)
-            {
-                if (szamok[i]<min)
+                Console.WriteLine();
+
+                int max = szamok[0];
+                for (int i = 1; i < szamok.Count; i++)
                 {
-                    min = szamok[i];
+                    if (max < szamok[i])
+                    {
+                        max = szamok[i];
+                    }
                 }
+                Console.WriteLine("A legnagyobb szám : " + max);
+                int min = szamok[0];
+                for (int i = 0; i < szamok.Count; i++)
+                {
+                    if (szamok[i] < min)
+                    {
+                        min = szamok[i];
+                    }
+                }
+                Console.WriteLine("A legkisebb szám: " + min);
+
+
+
+
+
             }
-            Console.WriteLine("A legkisebb szám: "+min);
-
-
-
-            
+            catch (Exception e)
+            {
+                Console.WriteLine("Hiba történt");
+            }
 
             Console.ReadKey();
         }
