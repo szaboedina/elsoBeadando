@@ -26,6 +26,7 @@ namespace ConsoleApp3
         static void Main(string[] args)
         {
             Beker();
+            Console.WriteLine("A megadott számok: ");
             for (int i = 0; i < szamok.Count; i++)
             {
                 Console.Write(szamok[i]+"   ");
@@ -41,7 +42,15 @@ namespace ConsoleApp3
                 }
             }
             Console.WriteLine("A legnagyobb szám : "+max);
-
+            int min = szamok[0];
+            for (int i = 0; i < szamok.Count; i++)
+            {
+                if (szamok[i]<min)
+                {
+                    min = szamok[i];
+                }
+            }
+            Console.WriteLine("A legkisebb szám: "+min);
 
 
 
